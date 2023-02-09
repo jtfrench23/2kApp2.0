@@ -1,11 +1,10 @@
 import Game from "../models/Game.js";
-import User from "../models/User.js";
+
 
 // Create
 export const createGame = async (request, response) => {
     try{
-        const{win, points, assists, steals, rebounds, blocks, turnovers, fouls} = request.body;
-        const user = await User.findById(userID);
+        const{userID, win, points, assists, steals, rebounds, blocks, turnovers, fouls} = request.body;
         const newGame = new Game({
             userID,
             win, 
