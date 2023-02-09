@@ -1,4 +1,4 @@
-import Game from "../models/game";
+import Game from "../models/Game.js";
 import User from "../models/User.js";
 
 // Create

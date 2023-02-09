@@ -1,5 +1,5 @@
 import express from "express";
-import bodyParser from "bodyParser";
+import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import helmet from "helmet";
 import cors from "cors";
@@ -33,6 +33,7 @@ app.use("/games", gameRoutes);
 
 // Mongoose Config
 const PORT = process.env.PORT || 6001;
+mongoose.set('strictQuery', false);
 mongoose
   .connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
@@ -46,3 +47,4 @@ mongoose
     // Post.insertMany(posts);
   })
   .catch((error) => console.log(`${error} did not connect`));
+
