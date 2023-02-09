@@ -1,0 +1,19 @@
+import mongoose from "mongoose";
+
+const GameSchema = new mongoose.Schema({
+    userId: {
+        type: String,
+        required: true,
+    },
+    win: {type:Boolean},
+    points: {type: Number},
+    assists: {type: Number},
+    steals: {type: Number},
+    rebounds: {type: Number},
+    blocks: {type: Number},
+    turnovers: {type: Number},
+    fouls: {type: Number}
+}, { timestamps: true });
+
+const Game = mongoose.model("Game", GameSchema);
+export default Game;
