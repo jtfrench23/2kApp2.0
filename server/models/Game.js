@@ -1,10 +1,11 @@
 import mongoose from "mongoose";
 
 const GameSchema = new mongoose.Schema({
-    userId: {
+    buildId: {
         type: String,
         required: true,
     },
+    isRecGame: {type: Boolean},
     win: {type:Boolean},
     points: {type: Number},
     assists: {type: Number},
