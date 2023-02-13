@@ -1,12 +1,16 @@
 import mongoose from "mongoose";
 
 const GameSchema = new mongoose.Schema({
-    buildId: {
+    buildID: {
         type: String,
         required: true,
     },
+    buildID:{
+        type: String,
+        required: true
+    },
     isRecGame: {type: Boolean},
-    win: {type:Boolean},
+    isWin: {type:Boolean},
     points: {type: Number},
     assists: {type: Number},
     steals: {type: Number},

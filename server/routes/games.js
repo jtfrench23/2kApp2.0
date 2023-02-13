@@ -1,13 +1,21 @@
 import express from "express";
-import { getGames } from "../controllers/games.js";
+import { 
+    getGamesByUser,
+    getGamesByBuild,
+    createGame
+    } from "../controllers/games.js";
 import { verifyToken } from "../middleware/auth.js";
 
 const router = express.Router();
 
-/* READ */
+// Create
 
-router.get("/:userId/games", verifyToken, getGames);
+router.post("/create_game", verifyToken, createGame);
 
+// Read
+
+router.get("/:userId/user_games", verifyToken, getGamesByUser);
+router.get("/:buildID/build_games", verifyToken, getGamesByBuild);
 
 
 export default router;

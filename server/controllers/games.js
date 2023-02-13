@@ -4,10 +4,12 @@ import Game from "../models/Game.js";
 // Create
 export const createGame = async (request, response) => {
     try{
-        const{userID, win, points, assists, steals, rebounds, blocks, turnovers, fouls} = request.body;
+        const{userID, buildID, isRecGame, isWin, points, assists, steals, rebounds, blocks, turnovers, fouls} = request.body;
         const newGame = new Game({
             userID,
-            win, 
+            buildID,
+            isRecGame,
+            isWin, 
             points,
             assists, 
             steals,
@@ -24,12 +26,21 @@ export const createGame = async (request, response) => {
     }
 };
 // Read
-export const getGames = async (request, response) => {
+export const getGamesByUser = async (request, response) => {
     try {
         const { userId } = request.params;
         const game = await Game.find({ userId });
         response.status(200).json(game);
     } catch (err) {
         response.status(404).json({ message: err.message });
+    }
+};
+export const getGamesByBuild = async (req, res) => {
+    try{
+        const {buildID} = request.params;
+        const games = Game.find({buildID});
+        response.status(200).json(games);
+    } catch (err){
+        response.status(404).json({message: err.message})
     }
 };
