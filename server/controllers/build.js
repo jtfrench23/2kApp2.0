@@ -29,6 +29,19 @@ export const getBuild = async (req, res) => {
         }
 };
 
+export const getBuildsByGamertag = async (req,res) => {
+    try{
+        const {gamertag} = req.body;
+        const builds = await Build.find(
+            {gamertag: gamertag}
+        );
+        console.log(builds);
+        res.status(200).json(builds);
+    } catch(err){
+        res.status(404).json({ message: err.message });
+    }
+}
+
 // Update
 
 export const editBuild = async(req, res) => {

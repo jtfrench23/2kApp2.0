@@ -8,6 +8,7 @@ import morgan from "morgan";
 import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/users.js";
 import gameRoutes from "./routes/games.js";
+import buildRoutes from "./routes/build.js";
 
 // CONFIG
 
@@ -26,6 +27,7 @@ app.use(cors());
 app.use("/auth", authRoutes);
 app.use("/users", userRoutes);
 app.use("/games", gameRoutes);
+app.use("/builds", buildRoutes);
 
 // Mongoose Config
 const PORT = process.env.PORT || 6001;
