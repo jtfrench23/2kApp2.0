@@ -26,6 +26,9 @@ export const authSlice = createSlice(
             setGames: (state, action) => {
                 state.games = action.payload.games;
             },
+            setBuilds: (state, action) => {
+                state.builds = action.payload.builds;
+            }
         }
     }
 )

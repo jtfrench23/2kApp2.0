@@ -1,7 +1,7 @@
 import {BrowserRouter, Navigate, Routes, Route} from 'react-router-dom';
 import HomePage from 'scenes/homePage';
 import LoginPage from 'scenes/loginPage';
-
+import BuildPage from 'scenes/buildPage';
 import {useMemo} from 'react';
 import {useSelector} from 'react-redux';
 import {CssBaseline, ThemeProvider} from '@mui/material';
@@ -19,6 +19,7 @@ function App() {
           <Routes>
             <Route path='/' element = {<LoginPage />} />
             <Route path='/home' element = {isAuth? <HomePage /> : <Navigate to='/' />} />
+            <Route path='/build/:id' element = {isAuth? <BuildPage /> :<Navigate to='/' />} />
           </Routes>
         </ThemeProvider>
       </BrowserRouter>
