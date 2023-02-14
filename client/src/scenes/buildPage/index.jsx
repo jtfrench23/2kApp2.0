@@ -1,14 +1,26 @@
 import Navbar from "scenes/navbar";
-import { Box, useMediaQuery } from '@mui/material';
+import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { useSelector } from "react-redux";
 import GameStatsWidget from "scenes/widgets/gameStatsWidget";
+import { useParams } from "react-router-dom";
 
 const BuildPage = () => {
     const isNonMobileScreens = useMediaQuery("(min-width:1000px");
-    const {_id}= useSelector((state)=>state.user);
+    const {_id}= useParams();
+    const {buildNickname, buildName, position} = useSelector((state)=>state.build);
+    const {palette}= useTheme();
     return(
     <Box>
         <Navbar />
+        <Typography
+        color={palette.primary.main}
+        variant="h3"
+        fontWeight="500"
+        textAlign='center'
+        sx={{mt:"1.5rem",}}
+        >
+                {buildNickname} {buildName} {position}
+            </Typography>
         <Box
             width='100%'
             padding='2rem 6%'

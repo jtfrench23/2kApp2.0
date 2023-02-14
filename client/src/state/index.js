@@ -28,10 +28,15 @@ export const authSlice = createSlice(
             },
             setBuilds: (state, action) => {
                 state.builds = action.payload.builds;
+            },
+            setBuild: (state, action) => {
+                state.buildName = action.payload.buildName;
+                state.buildNickname = action.payload.buildNickname;
+                state.position = action.payload.position;
             }
         }
     }
 )
 
-export const {setMode, setLogin, setLogout, setGames, setBuilds} = authSlice.actions;
+export const {setMode, setLogin, setLogout, setGames, setBuilds, setBuild} = authSlice.actions;
 export default authSlice.reducer;

@@ -25,7 +25,7 @@ const HomePage = () => {
                 
             </Box>
             <Box
-                flexBasis={isNonMobileScreens ? "30%": "50%"}
+                flexBasis={isNonMobileScreens ? "30%": undefined}
                 mt={isNonMobileScreens ? undefined : "2rem"}
             >
                 <BuildsWidget gamertag={gamertag}/>
