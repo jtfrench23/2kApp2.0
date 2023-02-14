@@ -2,6 +2,7 @@ import Navbar from "scenes/navbar";
 import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { useSelector } from "react-redux";
 import GameStatsWidget from "scenes/widgets/gameStatsWidget";
+import GameForm from "scenes/widgets/gameFormWidget";
 import { useParams } from "react-router-dom";
 
 const BuildPage = () => {
@@ -33,6 +34,14 @@ const BuildPage = () => {
                 mt={isNonMobileScreens ? undefined : "2rem"}
             >
                 <GameStatsWidget id={{_id, isBuild:true}} />
+                
+            </Box>
+            <Box
+                flexBasis={isNonMobileScreens ? "50%": undefined}
+                mt={isNonMobileScreens ? undefined : "2rem"}
+            >
+                <GameForm />
+                
             </Box>
         </Box>
     </Box>

@@ -4,6 +4,8 @@ import Game from "../models/Game.js";
 // Create
 export const createGame = async (request, response) => {
     try{
+        console.log('here');
+        console.log(request.body);
         const{userID, buildID, isRecGame, isWin, points, assists, steals, rebounds, blocks, turnovers, fouls} = request.body;
         const newGame = new Game({
             userID,

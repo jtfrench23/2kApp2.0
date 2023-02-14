@@ -13,15 +13,15 @@ const Build = ({ buildId, buildName, buildNickname, position }) => {
     const main = palette.neutral.main;
     const medium = palette.neutral.medium;
     const dispatch = useDispatch();
-    
-
+    console.log(buildId);
+    const build = {buildID:buildId, buildName:buildName, buildNickname: buildNickname, position:position};
     return (
     <FlexBetween>
         <FlexBetween gap="1rem">
         <Box
             onClick={() => {
                 dispatch(
-                    setBuild({buildName:buildName, buildNickname:buildNickname, position:position})
+                    setBuild({build:build})
                 );
                 navigate(`/build/${buildId}`);
                 navigate(0);

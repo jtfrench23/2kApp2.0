@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const GameSchema = new mongoose.Schema({
-    buildID: {
+    userID: {
         type: String,
         required: true,
     },
