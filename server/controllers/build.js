@@ -31,7 +31,7 @@ export const getBuild = async (req, res) => {
 
 export const getBuildsByGamertag = async (req,res) => {
     try{
-        const {gamertag} = req.body;
+        const {gamertag} = req.params;
         const builds = await Build.find(
             {gamertag: gamertag}
         );

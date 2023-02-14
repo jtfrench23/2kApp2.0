@@ -17,7 +17,7 @@ router.post("/create_build", verifyToken, createBuild);
 
 router.get("/:id", verifyToken, getBuild);
 
-router.get("/all_builds", verifyToken, getBuildsByGamertag);
+router.get("/:gamertag/all_builds", getBuildsByGamertag);
 
 // Update
 

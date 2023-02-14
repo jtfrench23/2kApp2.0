@@ -2,10 +2,11 @@ import Navbar from "scenes/navbar";
 import { Box, useMediaQuery } from '@mui/material';
 import { useSelector } from "react-redux";
 import GameStatsWidget from "scenes/widgets/gameStatsWidget";
+import BuildsWidget from "scenes/widgets/buildsWidget";
 
 const HomePage = () => {
     const isNonMobileScreens = useMediaQuery("(min-width:1000px");
-    const {_id}= useSelector((state)=>state.user);
+    const {gamertag, _id}= useSelector((state)=>state.user);
     return(
     <Box>
         <Navbar />
@@ -21,6 +22,14 @@ const HomePage = () => {
                 mt={isNonMobileScreens ? undefined : "2rem"}
             >
                 <GameStatsWidget id={_id} />
+                
+            </Box>
+            <Box
+                flexBasis={isNonMobileScreens ? "42%": undefined}
+                mt={isNonMobileScreens ? undefined : "2rem"}
+            >
+                <BuildsWidget gamertag={gamertag}/>
+                
             </Box>
         </Box>
     </Box>
