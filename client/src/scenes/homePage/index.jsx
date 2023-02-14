@@ -18,14 +18,14 @@ const HomePage = () => {
             justifyContent="space-between"
         >
             <Box
-                flexBasis={isNonMobileScreens ? "42%": undefined}
+                flexBasis={isNonMobileScreens ? "40%": undefined}
                 mt={isNonMobileScreens ? undefined : "2rem"}
             >
                 <GameStatsWidget id={_id} />
                 
             </Box>
             <Box
-                flexBasis={isNonMobileScreens ? "42%": undefined}
+                flexBasis={isNonMobileScreens ? "30%": "50%"}
                 mt={isNonMobileScreens ? undefined : "2rem"}
             >
                 <BuildsWidget gamertag={gamertag}/>

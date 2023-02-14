@@ -38,9 +38,9 @@ const BuildsWidget = ({ gamertag }) => {
     <WidgetWrapper>
         <Typography
             color={palette.neutral.dark}
-            variant="h5"
+            variant="h3"
             fontWeight="500"
-            sx={{ mb: "1.5rem" }}
+            sx={{ mb: "1.5rem"}}
         >
             Your Builds
         </Typography>

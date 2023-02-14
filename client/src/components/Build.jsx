@@ -21,6 +21,7 @@ const Build = ({ buildId, buildName, buildNickname, position }) => {
             navigate(`/build/${buildId}`);
             navigate(0);
             }}
+            style={{border:`2px solid ${palette.primary.main}`, padding:'1rem'}}
         >
             <Typography
             color={main}
