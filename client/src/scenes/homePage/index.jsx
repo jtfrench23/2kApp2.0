@@ -21,7 +21,7 @@ const HomePage = () => {
                 flexBasis={isNonMobileScreens ? "40%": undefined}
                 mt={isNonMobileScreens ? undefined : "2rem"}
             >
-                <GameStatsWidget id={_id} />
+                <GameStatsWidget id={_id} isBuild={false} />
                 
             </Box>
             <Box

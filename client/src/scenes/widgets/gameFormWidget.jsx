@@ -33,6 +33,19 @@ const GameForm = () => {
     const onSubmitHandler = async (e) => {
         e.preventDefault();
         console.log('adding game');
+        const gameData = {
+            userID:_id,
+            buildID:buildID,
+            isWin:isWin,
+            isRecGame:isRecGame,
+            points:points,
+            assists:assists,
+            steals:steals,
+            blocks:blocks,
+            rebounds:rebounds,
+            turnovers:turnovers,
+            fouls:fouls
+        }
         const response = await fetch(
             `http://localhost:3001/games/create_game`,
             {
@@ -42,19 +55,7 @@ const GameForm = () => {
                 Accept: 'application.json',
                 'Content-Type': 'application/json'
             },
-            body: {
-                userID:_id,
-                buildID:buildID,
-                isWin:isWin,
-                isRecGame:isRecGame,
-                points:points,
-                assists:assists,
-                steals:steals,
-                blocks:blocks,
-                rebounds:rebounds,
-                turnovers:turnovers,
-                fouls:fouls
-            }
+            body: JSON.stringify(gameData)
             }
         );
         const data = await response.json();

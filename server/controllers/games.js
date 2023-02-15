@@ -1,11 +1,9 @@
 import Game from "../models/Game.js";
 
-
 // Create
 export const createGame = async (request, response) => {
     try{
         console.log('here');
-        console.log(request.body);
         const{userID, buildID, isRecGame, isWin, points, assists, steals, rebounds, blocks, turnovers, fouls} = request.body;
         const newGame = new Game({
             userID,
@@ -22,7 +20,7 @@ export const createGame = async (request, response) => {
         });
         await newGame.save();
         const game = Game.find();
-        response.status(201).json(game);
+        response.status(201).json({message:'success'});
     } catch(err){
         response.status(409).json({message: err.message})
     }
@@ -30,8 +28,10 @@ export const createGame = async (request, response) => {
 // Read
 export const getGamesByUser = async (request, response) => {
     try {
-        const { userId } = request.params;
-        const game = await Game.find({ userId });
+        const { userID } = request.params;
+        console.log(userID);
+        const game = await Game.find({ userID });
+        console.log(game);
         response.status(200).json(game);
     } catch (err) {
         response.status(404).json({ message: err.message });
@@ -39,10 +39,10 @@ export const getGamesByUser = async (request, response) => {
 };
 export const getGamesByBuild = async (req, res) => {
     try{
-        const {buildID} = request.params;
-        const games = Game.find({buildID});
-        response.status(200).json(games);
+        const {buildID} = req.params;
+        const games = await Game.find({buildID});
+        res.status(200).json(games);
     } catch (err){
-        response.status(404).json({message: err.message})
+        res.status(405).json({message: err.message})
     }
 };

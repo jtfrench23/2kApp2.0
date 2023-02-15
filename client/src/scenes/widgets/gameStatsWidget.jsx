@@ -17,6 +17,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { setGames } from "state";
 
 const GameStatsWidget = ({id, isBuild}) => {
+    console.log(id);
+    console.log(isBuild);
     const dispatch = useDispatch();
     const {palette}= useTheme();
     const token = useSelector((state)=>state.token);
@@ -54,7 +56,8 @@ const GameStatsWidget = ({id, isBuild}) => {
         setFpl(averages.foulsLoss);
     }
     const getGames = async ()=>{
-        if (isBuild){
+        console.log('gettingGames');
+        if (isBuild===true){
             const response = await fetch(
                 `http://localhost:3001/games/${id}/build_games`,
                 {
@@ -63,6 +66,7 @@ const GameStatsWidget = ({id, isBuild}) => {
                 }
             );
             const data = await response.json();
+            console.log(`game = ${data}`);
             dispatch(setGames({games: data}));
             setAverages(games);
         } else{
@@ -74,6 +78,7 @@ const GameStatsWidget = ({id, isBuild}) => {
                 }
             );
             const data = await response.json();
+            console.log(`game = ${data}`);
             dispatch(setGames({games: data}));
             setAverages(games);
         }

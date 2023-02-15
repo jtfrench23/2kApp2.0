@@ -14,7 +14,7 @@ router.post("/create_game", verifyToken, createGame);
 
 // Read
 
-router.get("/:userId/user_games", verifyToken, getGamesByUser);
+router.get("/:userID/user_games", verifyToken, getGamesByUser);
 router.get("/:buildID/build_games", verifyToken, getGamesByBuild);
 
 

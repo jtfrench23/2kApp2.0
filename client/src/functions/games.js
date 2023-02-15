@@ -19,7 +19,7 @@ function Averages(data){
     let lossCount=0;
     while (i<data.length){
         console.log(data[i]);
-        if(data[i].win===true){
+        if(data[i].isWin===true){
             totalPoints+=data[i].points;
             totalAssists+=data[i].assists;
             totalSteals+=data[i].steals;

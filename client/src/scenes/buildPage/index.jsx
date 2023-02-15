@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 
 const BuildPage = () => {
     const isNonMobileScreens = useMediaQuery("(min-width:1000px");
-    const {_id}= useParams();
+    const {buildID}= useSelector((state)=>state.build) ;
     const {buildNickname, buildName, position} = useSelector((state)=>state.build);
     const {palette}= useTheme();
     return(
@@ -33,7 +33,7 @@ const BuildPage = () => {
                 flexBasis={isNonMobileScreens ? "42%": undefined}
                 mt={isNonMobileScreens ? undefined : "2rem"}
             >
-                <GameStatsWidget id={{_id, isBuild:true}} />
+                <GameStatsWidget id={buildID} isBuild={true}/>
                 
             </Box>
             <Box
