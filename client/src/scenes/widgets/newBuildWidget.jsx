@@ -56,12 +56,9 @@ const BuildForm = () => {
     },
     button: {
         width: "100%",
+        margin:'1px',
         display:"block"
     },
-    RadioGroup: {
-        width: "100%",
-        marginBottom: "1rem"
-    }
 }
     return (
         <WidgetWraper>
@@ -80,9 +77,11 @@ const BuildForm = () => {
                         <InputLabel>Position</InputLabel>
                         <OutlinedInput type="text" onChange = {(e)=>setPosition(e.target.value)}/>
                     </FormControl>
-                    <Button type="submit" variant="contained" color="primary">
-                        Submit
-                    </Button>
+                    <FormControl variant="outlined" style={styles.button}>
+                        <Button type="submit" variant="contained" color="primary">
+                            Submit
+                        </Button>
+                    </FormControl>
                 </form>
             </Paper>
         </WidgetWraper>

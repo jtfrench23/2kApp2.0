@@ -1,5 +1,5 @@
 import Navbar from "scenes/navbar";
-import { Box, Button, useMediaQuery, useTheme} from '@mui/material';
+import { Box, Button, useMediaQuery, useTheme, Typography} from '@mui/material';
 import { useSelector } from "react-redux";
 import GameStatsWidget from "scenes/widgets/gameStatsWidget";
 import BuildsWidget from "scenes/widgets/buildsWidget";
@@ -14,6 +14,22 @@ const HomePage = () => {
     return(
     <Box>
         <Navbar />
+            <Typography
+                color={palette.neutral.dark}
+                variant="h1"
+                fontWeight="500"
+                sx={{mb:"1rem", mt:"2rem", textAlign:'center'}}
+            >
+                Welcome, {gamertag}! 
+            </Typography>
+            <Typography
+                color={palette.neutral.dark}
+                variant="h4"
+                fontWeight="500"
+                sx={{mb:"1rem", textAlign:'center'}}
+            >
+                Checkout your averages across all your builds! 
+            </Typography>
         <Box
             width='100%'
             padding='2rem 6%'
