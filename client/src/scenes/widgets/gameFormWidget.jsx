@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import {
     Paper,
     FormControl,
@@ -27,7 +27,7 @@ const GameForm = () => {
     const [turnovers, setTurnovers] = useState(0);
     const [fouls, setFouls] = useState(0);
     const token = useSelector((state)=>state.token);
-    console.log(token);
+    const navigate = useNavigate();
 
     //handler when the form is submitted
     const onSubmitHandler = async (e) => {
@@ -60,6 +60,8 @@ const GameForm = () => {
         );
         const data = await response.json();
         console.log(data);
+        navigate(`/build/${buildID}`);
+        navigate(0);
     };
     const styles = {
     paper: {

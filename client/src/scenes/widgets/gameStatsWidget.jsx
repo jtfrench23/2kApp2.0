@@ -1,7 +1,6 @@
 import {useState, useEffect} from 'react';
 import Averages from 'functions/games';
 import { 
-    Box, 
     Typography, 
     useTheme,
     Paper,
@@ -14,7 +13,7 @@ import {
 } from "@mui/material";
 import WidgetWrapper from "components/WidgetWrapper";
 import { useSelector } from "react-redux";
-import { setGames } from "state";
+
 
 const GameStatsWidget = ({id, isBuild}) => {
     console.log(id);
@@ -162,7 +161,7 @@ const GameStatsWidget = ({id, isBuild}) => {
                 color={palette.primary.dark}
                 variant="h3"
                 fontWeight="500"
-                sx={{mb:"1.5rem"}}
+                sx={{mt:"1.5rem", mb:"1.5rem"}}
             >
                 Loss Averages
             </Typography>
@@ -240,7 +239,7 @@ const GameStatsWidget = ({id, isBuild}) => {
                 color={palette.primary.dark}
                 variant="h3"
                 fontWeight="500"
-                sx={{mb:"1.5rem"}}
+                sx={{mt:"1.5rem", mb:"1.5rem"}}
             >
                 Loss Averages
             </Typography>
@@ -269,6 +268,7 @@ const GameStatsWidget = ({id, isBuild}) => {
                         </TableRow>
                     </TableBody>
                 </Table>
+                <hr></hr>
             </TableContainer>
         </WidgetWrapper>
     )

@@ -42,7 +42,7 @@ const Build = ({ buildId, buildName, buildNickname, position }) => {
             {buildNickname}
             </Typography>
             <Typography color={primaryLight} fontSize="0.75rem">
-            {buildName} {position}
+            {buildName} -- {position}
             </Typography>
         </Box>
         </FlexBetween>

@@ -20,7 +20,7 @@ const BuildPage = () => {
         textAlign='center'
         sx={{mt:"1.5rem",}}
         >
-                {buildNickname} {buildName} {position}
+                {buildNickname} {position}
             </Typography>
         <Box
             width='100%'
