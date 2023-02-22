@@ -13,6 +13,7 @@ import {
 } from "@mui/material";
 import WidgetWrapper from "components/WidgetWrapper";
 import { useSelector } from "react-redux";
+import FlexBetween from 'components/FlexBetween';
 
 
 const GameStatsWidget = ({id, isBuild}) => {
@@ -48,6 +49,7 @@ const GameStatsWidget = ({id, isBuild}) => {
     const [bplp, setBplp]=useState(0);
     const [tplp, setTplp]= useState(0);
     const [fplp, setFplp]=useState(0);
+    const [suggestion, setSuggestion]= useState("");
     
     function setAverages(data){
         const averages = Averages(data);
@@ -105,14 +107,38 @@ const GameStatsWidget = ({id, isBuild}) => {
             const data = await response.json();
             console.log(`game = ${data}`);
             setAverages(data);
+            getSuggestions();
         }
     };
+
+    const getSuggestions = () =>{
+        let pointDiff = Math.abs(ppw-ppl);
+        let assistDiff = Math.abs(apw-apl);
+        let reboundDiff = Math.abs(rpw-rpl);
+        let stealDiff = Math.abs(spw-spl);
+        let blockDiff = Math.abs(bpw-bpl);
+        let turnoverDiff = Math.abs(tpw-tpl);
+        let foulDiff = Math.abs(fpw-fpl);
+        let differences = {
+            'points': pointDiff,
+            'assists': assistDiff,
+            'rebounds': reboundDiff,
+            'steals': stealDiff,
+            'blocks': blockDiff,
+            'turnovers': turnoverDiff,
+            'fouls': foulDiff
+        }
+        let biggestDiff = (Object.keys(differences).reduce(function(a, b){ return differences[a] > differences[b] ? a : b }))
+        let response = `It appears that your biggest contributing factor is ${biggestDiff}.  Try to meet your average for ${biggestDiff}/win every game.`
+        setSuggestion(response);
+    }
 
     useEffect(()=> {
         getGames();
     }, []);
 
     return (
+        <FlexBetween>
         <WidgetWrapper>
             <Typography
                 color={palette.neutral.dark}
@@ -270,7 +296,27 @@ const GameStatsWidget = ({id, isBuild}) => {
                 </Table>
                 <hr></hr>
             </TableContainer>
+            <hr></hr>
+            <Typography
+                    color={palette.neutral.dark}
+                    variant="h2"
+                    fontWeight="500"
+                    display="block"
+                    sx={{mb:"1rem", textAlign:'center'}}
+                >
+                    Suggestion
+                </Typography>
+                <Typography
+                    color={palette.neutral.dark}
+                    variant="h3"
+                    fontWeight="500"
+                    sx={{mb:"1rem", textAlign:'center'}}
+                >
+                    {suggestion}
+                </Typography>
         </WidgetWrapper>
+            
+        </FlexBetween>
     )
 
 
